@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+789110f0db919b35727e6dd73ff6adeb include/glfw/CMakeFiles/uninstall
+bb922c14d27c6cd287aa161f9d033778 include/glfw/docs/html/index.html
+2705e7fb1a073b35488385b361c0e00a include/glfw/src/CMakeFiles/update_mappings
