@@ -1,12 +1,17 @@
 #include "main.hpp"
 
 typedef struct{
-    double X,Y;
+    double x,y;
 }Vector2D;
 
-static void DrawRectangle(Vector2D * center, Vector2D *  up, const unsigned long depth);
-static void PythagorasTree(Vector2D * center, Vector2D *  up, const unsigned long depth);
+static void line(Vector2D * start, Vector2D * end);
+static void PythagorasTree(Vector2D * start, const unsigned long depth, 
+                            const unsigned long len, const double fi, const double alpha);
 
+const double pi6 = pi / 6;
+const double pi3 = pi / 3;
+const double pi2 = pi / 2;
+const double pi4 = pi / 4;
 
 
 int main()
@@ -19,7 +24,7 @@ int main()
     return -1;
     }
 
-  window = glfwCreateWindow(1280, 800, "Pythagoras Tree", NULL, NULL);
+  window = glfwCreateWindow(800, 800, "Pythagoras Tree", NULL, NULL);
 
   if (!window) {
     std::cout << "Failed to create GLFW window" << std::endl;
@@ -49,19 +54,18 @@ int main()
     
 
     while (!glfwWindowShouldClose(window)) {
-		int width, height;
-		
-		glfwGetFramebufferSize(window, &width, &height);
+      int width, height;
+      
+      glfwGetFramebufferSize(window, &width, &height);
 
-        glClear( GL_COLOR_BUFFER_BIT);
+      glClear( GL_COLOR_BUFFER_BIT);
 
-		Vector2D center = {width*0.5,height*0.8};
-		Vector2D up = {0.0,-50.0};
+      Vector2D start = {width*0.49f,height*0.49f};
 
-        PythagorasTree(&center, &up, 5);
+      PythagorasTree(&start, 10, width * 0.2, pi3, pi6);
 
-        glfwSwapBuffers(window);
-        glfwPollEvents();
+      glfwSwapBuffers(window);
+      glfwPollEvents();
     }
 
     glfwDestroyWindow(window);
@@ -70,27 +74,60 @@ int main()
     return 0;
 }
 
-static void PythagorasTree(Vector2D * center, Vector2D *  up, const unsigned long depth)
+static void PythagorasTree(Vector2D * start, const unsigned long depth, 
+                            const unsigned long len, const double fi, const double alpha)
 {	
+	if(depth==0||start==0||len==0) return;
 	
-	if(depth==0||center==0||up==0) return;
-	
-	DrawRectangle(center,up,depth);
-	
+  Vector2D a,b,c,d;
+
+  float scale = 1.0f;
+
+  // a = {scale * (cos(alpha) * len - sin(alpha) * len) + start->x,
+  //      start->y + scale * (sin(alpha) * len + cos(alpha) * len)};
+    
+  // b = {start->x - scale * (cos(alpha) * len - sin(alpha) * len) ,
+  //      start->y + scale * (sin(alpha) * len + cos(alpha) * len)};
+
+  // c = {b.x - scale * (cos(alpha) * len - sin(alpha) * len) ,
+  //      b.y - scale * (sin(alpha) * len + cos(alpha) * len)};
+  
+  
+  a = { 
+        start->x + scale * len * cos(alpha), 
+        start->y + scale * len * sin(alpha)
+      };
+  
+  
+  b = { 
+        start->x + scale * len * cos(-( pi - (pi2 + alpha))), 
+        start->y + scale * len * sin(-( pi - (pi2 + alpha)))
+      };
+  
+  c = {
+        b.x + scale * len * cos( pi alpha) ,      
+        b.y + scale * len * sin(alpha)  
+      };
 
 
+  // d = {      b.x + scale * (len * sin(fi) * sin(alpha + fi)),         b.y + scale * len * cos(alpha + fi) * sin(fi)};
+
+  line(start, &a);
+  line(start, &b);
+  line(   &b, &c);
+  line(   &a, &c);
+  
+  // line(   &c, &d);
+  // line(   &b, &d);
+
+  // PythagorasTree(&d, depth - 1, len, fi, alpha);
 };
 
-static void DrawRectangle(Vector2D * center, Vector2D *  up, const unsigned long depth)
+static void line(Vector2D * start, Vector2D * end)
 {
-	Vector2D normaln = {-up->Y,up->X};
-	
-	glColor3f(((1.0f / 10.0f) * (double)depth),0.3f+((0.7f / 10.0f) * (double)depth),0.0f);
-	
-	glBegin(GL_QUADS);
-		glVertex2d(center->X-up->X-normaln.X,center->Y-up->Y-normaln.Y);
-		glVertex2d(center->X-up->X+normaln.X,center->Y-up->Y+normaln.Y);
-		glVertex2d(center->X+up->X+normaln.X,center->Y+up->Y+normaln.Y);
-		glVertex2d(center->X+up->X-normaln.X,center->Y+up->Y-normaln.Y);
-	glEnd();
+  glColor3d(0.5f, 0.3f, 0.6f);
+  glBegin(GL_LINES);
+    glVertex2d(start->x, start->y);
+    glVertex2d(  end->x,   end->y);
+  glEnd();
 };

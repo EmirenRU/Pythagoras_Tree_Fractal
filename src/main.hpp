@@ -5,5 +5,6 @@
 #include <GL/gl.h>
 #include <GL/glx.h>
 
-
 using namespace std;
+
+#define pi 3.1415926535897932384626433832795
