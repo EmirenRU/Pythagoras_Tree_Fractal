@@ -1,74 +1,13 @@
 #include "main.hpp"
 
 typedef struct{
-    double x,y;
+    double X,Y;
 }Vector2D;
 
-static void DrawRectangle(Vector2D * a, Vector2D * b, const unsigned long depth);
-
-void PythagorasTree(Vector2D *a, Vector2D *b, int depth){
-    if(depth==0||a==0||b==0) return;
-    DrawRectangle(a,b, depth);
-
-    Vector2D
-		newcenter,
-		newup,
-		normal;
-
-	unsigned char counter = 0;
-	
-	normal=
-			(Vector2D){
-				-b->y,
-				b->x
-			};
-			
-	for(counter=0;counter<2;counter++)
-	{
-		newup=
-			(Vector2D){
-				(b->x + normal.x) * 0.5,
-				(b->y + normal.y) * 0.5
-			};
-			
-		newcenter=
-			(Vector2D){
-				a->x + b->x * 2.0 + normal.x,
-				a->y + b->y * 2.0 + normal.y
-			};
-			
-		PythagorasTree(&newcenter,&newup,depth-1);
-			
-		normal=
-			(Vector2D){
-				b->y,
-				-b->x
-			};
-	};
-}
+static void DrawRectangle(Vector2D * center, Vector2D *  up, const unsigned long depth);
+static void PythagorasTree(Vector2D * center, Vector2D *  up, const unsigned long depth);
 
 
-static void DrawRectangle(Vector2D * a, Vector2D *  b, const unsigned long depth)
-{
-	Vector2D normaln = {-b->y,b->x};
-
-    cout << " A = " << a->x << " " << a->y << " B = " << b->x << " " << b->y << endl; 
-	
-	glColor3f(((1.0f / 10.0f) * (double)depth),0.3f+((0.7f / 10.0f) * (double)depth),0.0f);
-	
-	glBegin(GL_QUADS);
-            glVertex2d(a->x-a->x-normaln.x,
-                        a->y-b->y-normaln.y);
-            glVertex2d(a->x-b->x+normaln.x, a->y-b->y+normaln.y);
-            glVertex2d(a->x+b->x+normaln.x,a->y+b->y+normaln.y);
-            glVertex2d(a->x+b->x-normaln.x,a->y+b->y-normaln.y);
-            // glVertex2d(a->x - b->, a->y);
-            // glVertex2d(b->x, b->y);
-
-            // glVertex2d(c.x, c.y);
-            // glVertex2d(d.x, d.y);
-        glEnd();
-};
 
 int main()
 {
@@ -130,3 +69,28 @@ int main()
     exit(EXIT_SUCCESS);
     return 0;
 }
+
+static void PythagorasTree(Vector2D * center, Vector2D *  up, const unsigned long depth)
+{	
+	
+	if(depth==0||center==0||up==0) return;
+	
+	DrawRectangle(center,up,depth);
+	
+
+
+};
+
+static void DrawRectangle(Vector2D * center, Vector2D *  up, const unsigned long depth)
+{
+	Vector2D normaln = {-up->Y,up->X};
+	
+	glColor3f(((1.0f / 10.0f) * (double)depth),0.3f+((0.7f / 10.0f) * (double)depth),0.0f);
+	
+	glBegin(GL_QUADS);
+		glVertex2d(center->X-up->X-normaln.X,center->Y-up->Y-normaln.Y);
+		glVertex2d(center->X-up->X+normaln.X,center->Y-up->Y+normaln.Y);
+		glVertex2d(center->X+up->X+normaln.X,center->Y+up->Y+normaln.Y);
+		glVertex2d(center->X+up->X-normaln.X,center->Y+up->Y-normaln.Y);
+	glEnd();
+};

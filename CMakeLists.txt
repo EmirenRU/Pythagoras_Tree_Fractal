@@ -37,5 +37,3 @@ if(OPENGL_FOUND)
 else()
     message(FATAL_ERROR "OpenGL not found")
 endif()
-
-target_link_libraries(${PROJECT_NAME} glfw)
