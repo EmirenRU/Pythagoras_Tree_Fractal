@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/opacity.dir/opacity.c.o CMakeFiles/opacity.dir/__/deps/glad_gl.c.o -o opacity  ../src/libglfw3.a /mnt/c/SDK/MinGW/lib/libm.a /usr/lib/x86_64-linux-gnu/librt.a /mnt/c/SDK/MinGW/lib/libm.a -ldl /usr/lib/x86_64-linux-gnu/libX11.so 

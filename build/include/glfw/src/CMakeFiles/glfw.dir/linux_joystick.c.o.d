@@ -1,8 +1,9 @@
 include/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o: \
- /home/emiren/Progs/cpp/opengl-proj/include/glfw/src/linux_joystick.c \
+ /home/emiren/graphical-project/include/glfw/src/linux_joystick.c \
  /usr/include/stdc-predef.h \
- /home/emiren/Progs/cpp/opengl-proj/include/glfw/src/internal.h \
- /home/emiren/Progs/cpp/opengl-proj/include/glfw/src/../include/GLFW/glfw3.h \
+ /home/emiren/graphical-project/include/glfw/src/internal.h \
+ /home/emiren/graphical-project/build/include/glfw/src/glfw_config.h \
+ /home/emiren/graphical-project/include/glfw/src/../include/GLFW/glfw3.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -19,9 +20,7 @@ include/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o: \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /home/emiren/Progs/cpp/opengl-proj/include/glfw/src/platform.h \
- /home/emiren/Progs/cpp/opengl-proj/include/glfw/src/null_platform.h \
- /home/emiren/Progs/cpp/opengl-proj/include/glfw/src/x11_platform.h \
+ /home/emiren/graphical-project/include/glfw/src/x11_platform.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h \
@@ -59,7 +58,8 @@ include/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o: \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
- /usr/include/x86_64-linux-gnu/bits/signal_ext.h /usr/include/X11/Xlib.h \
+ /usr/include/x86_64-linux-gnu/bits/signal_ext.h /usr/include/dlfcn.h \
+ /usr/include/x86_64-linux-gnu/bits/dlfcn.h /usr/include/X11/Xlib.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
@@ -72,8 +72,8 @@ include/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o: \
  /usr/include/X11/X.h /usr/include/X11/Xfuncproto.h \
  /usr/include/X11/Xosdefs.h /usr/include/X11/keysym.h \
  /usr/include/X11/keysymdef.h /usr/include/X11/Xatom.h \
- /usr/include/X11/Xresource.h /usr/include/X11/Xcursor/Xcursor.h \
- /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
+ /usr/include/X11/Xcursor/Xcursor.h /usr/include/stdio.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
@@ -91,14 +91,26 @@ include/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o: \
  /usr/include/X11/extensions/XInput2.h /usr/include/X11/extensions/XI2.h \
  /usr/include/X11/extensions/Xge.h /usr/include/X11/extensions/Xfixes.h \
  /usr/include/X11/extensions/xfixeswire.h \
- /usr/include/X11/extensions/shape.h \
- /usr/include/X11/extensions/shapeconst.h \
- /home/emiren/Progs/cpp/opengl-proj/include/glfw/src/xkb_unicode.h \
- /home/emiren/Progs/cpp/opengl-proj/include/glfw/src/posix_poll.h \
- /usr/include/poll.h /usr/include/x86_64-linux-gnu/sys/poll.h \
- /usr/include/x86_64-linux-gnu/bits/poll.h \
- /home/emiren/Progs/cpp/opengl-proj/include/glfw/src/null_joystick.h \
- /home/emiren/Progs/cpp/opengl-proj/include/glfw/src/linux_joystick.h \
+ /home/emiren/graphical-project/include/glfw/src/posix_thread.h \
+ /usr/include/pthread.h /usr/include/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
+ /usr/include/x86_64-linux-gnu/bits/cpu-set.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
+ /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
+ /usr/include/x86_64-linux-gnu/bits/pthread_stack_min.h \
+ /home/emiren/graphical-project/include/glfw/src/posix_time.h \
+ /home/emiren/graphical-project/include/glfw/src/xkb_unicode.h \
+ /home/emiren/graphical-project/include/glfw/src/glx_context.h \
+ /home/emiren/graphical-project/include/glfw/src/egl_context.h \
+ /home/emiren/graphical-project/include/glfw/src/osmesa_context.h \
+ /home/emiren/graphical-project/include/glfw/src/linux_joystick.h \
  /usr/include/linux/input.h /usr/include/x86_64-linux-gnu/sys/time.h \
  /usr/include/x86_64-linux-gnu/sys/ioctl.h \
  /usr/include/x86_64-linux-gnu/bits/ioctls.h \
@@ -117,23 +129,7 @@ include/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o: \
  /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
  /usr/include/asm-generic/posix_types.h \
  /usr/include/linux/input-event-codes.h /usr/include/linux/limits.h \
- /usr/include/regex.h \
- /home/emiren/Progs/cpp/opengl-proj/include/glfw/src/posix_thread.h \
- /usr/include/pthread.h /usr/include/sched.h \
- /usr/include/x86_64-linux-gnu/bits/sched.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
- /usr/include/x86_64-linux-gnu/bits/cpu-set.h /usr/include/time.h \
- /usr/include/x86_64-linux-gnu/bits/time.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
- /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/x86_64-linux-gnu/bits/setjmp.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
- /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
- /usr/include/x86_64-linux-gnu/bits/pthread_stack_min.h \
- /home/emiren/Progs/cpp/opengl-proj/include/glfw/src/posix_time.h \
- /usr/include/x86_64-linux-gnu/sys/stat.h \
+ /usr/include/regex.h /usr/include/x86_64-linux-gnu/sys/stat.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
  /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
  /usr/include/x86_64-linux-gnu/sys/inotify.h \

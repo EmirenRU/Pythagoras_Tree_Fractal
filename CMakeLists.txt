@@ -33,7 +33,7 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 
 if(OPENGL_FOUND)
     include_directories(${OPENGL_INCLUDE_DIRS})
-    target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} glfw)
+    target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} glfw m)
 else()
     message(FATAL_ERROR "OpenGL not found")
 endif()

@@ -1,8 +1,6 @@
 CMakeFiles/opengl-proj.dir/src/main.cpp.o: \
- /home/emiren/Progs/cpp/opengl-proj/src/main.cpp \
- /usr/include/stdc-predef.h \
- /home/emiren/Progs/cpp/opengl-proj/src/main.hpp \
- /usr/include/c++/11/iostream \
+ /home/emiren/graphical-project/src/main.cpp /usr/include/stdc-predef.h \
+ /home/emiren/graphical-project/src/main.hpp /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -145,8 +143,17 @@ CMakeFiles/opengl-proj.dir/src/main.cpp.o: \
  /usr/include/c++/11/bits/locale_facets.tcc \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc \
- /home/emiren/Progs/cpp/opengl-proj/include/glfw/include/GLFW/glfw3.h \
+ /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/cmath \
+ /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+ /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+ /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+ /home/emiren/graphical-project/include/glfw/include/GLFW/glfw3.h \
  /usr/include/GL/gl.h /usr/include/GL/glext.h \
  /usr/include/KHR/khrplatform.h /usr/include/GL/glx.h \
  /usr/include/X11/Xlib.h /usr/include/X11/X.h \

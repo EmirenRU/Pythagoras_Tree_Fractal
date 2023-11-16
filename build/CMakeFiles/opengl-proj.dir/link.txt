@@ -1,1 +1,1 @@
-/usr/bin/c++ "CMakeFiles/opengl-proj.dir/src/main.cpp.o" -o opengl-proj  /usr/lib/x86_64-linux-gnu/libGL.so include/glfw/src/libglfw3.a include/glfw/src/libglfw3.a /usr/lib/x86_64-linux-gnu/librt.a -lm -ldl 
+/usr/bin/c++ CMakeFiles/opengl-proj.dir/src/main.cpp.o -o opengl-proj  /usr/lib/x86_64-linux-gnu/libGL.so /usr/lib/x86_64-linux-gnu/libGLU.so include/glfw/src/libglfw3.a -lm include/glfw/src/libglfw3.a /usr/lib/x86_64-linux-gnu/librt.a /mnt/c/SDK/MinGW/lib/libm.a -ldl /usr/lib/x86_64-linux-gnu/libX11.so 

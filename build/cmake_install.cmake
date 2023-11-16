@@ -1,4 +1,4 @@
-# Install script for directory: /home/emiren/Progs/cpp/opengl-proj
+# Install script for directory: /home/emiren/graphical-project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/emiren/Progs/cpp/opengl-proj/build/include/glfw/cmake_install.cmake")
+  include("/home/emiren/graphical-project/build/include/glfw/cmake_install.cmake")
 
 endif()
 
@@ -56,5 +56,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/emiren/Progs/cpp/opengl-proj/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/emiren/graphical-project/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
