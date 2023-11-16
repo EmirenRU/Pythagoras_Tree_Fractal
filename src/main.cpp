@@ -81,17 +81,7 @@ static void PythagorasTree(Vector2D * start, const unsigned long depth,
 	
   Vector2D a,b,c,d;
 
-  float scale = 1.0f;
-
-  // a = {scale * (cos(alpha) * len - sin(alpha) * len) + start->x,
-  //      start->y + scale * (sin(alpha) * len + cos(alpha) * len)};
-    
-  // b = {start->x - scale * (cos(alpha) * len - sin(alpha) * len) ,
-  //      start->y + scale * (sin(alpha) * len + cos(alpha) * len)};
-
-  // c = {b.x - scale * (cos(alpha) * len - sin(alpha) * len) ,
-  //      b.y - scale * (sin(alpha) * len + cos(alpha) * len)};
-  
+  float scale = 0.3f;
   
   a = { 
         start->x + scale * len * cos(alpha), 
@@ -105,22 +95,27 @@ static void PythagorasTree(Vector2D * start, const unsigned long depth,
       };
   
   c = {
-        b.x + scale * len * cos( pi alpha) ,      
-        b.y + scale * len * sin(alpha)  
+        b.x + scale * len * cos(alpha), 
+        b.y + scale * len * sin(alpha)
+    };
+
+
+  d = { 
+        start->x + scale * len * cos(alpha + pi2),
+        start->y + scale * len * sin(alpha + pi2)
       };
-
-
-  // d = {      b.x + scale * (len * sin(fi) * sin(alpha + fi)),         b.y + scale * len * cos(alpha + fi) * sin(fi)};
 
   line(start, &a);
   line(start, &b);
   line(   &b, &c);
   line(   &a, &c);
   
-  // line(   &c, &d);
-  // line(   &b, &d);
+  line(   &a, &d);
+  line(start, &d);
 
-  // PythagorasTree(&d, depth - 1, len, fi, alpha);
+  PythagorasTree(&d, depth - 1, len,  alpha, alpha - fi);
+  // PythagorasTree(&d, depth - 1, len,  alpha-fi, alpha + (pi2 - fi));
+
 };
 
 static void line(Vector2D * start, Vector2D * end)
