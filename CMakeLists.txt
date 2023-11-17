@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(piTree)
+project(pTree)
 
 find_package( OpenGL REQUIRED )
 

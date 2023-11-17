@@ -60,9 +60,11 @@ int main()
 
       glClear( GL_COLOR_BUFFER_BIT);
 
-      Vector2D start = {width*0.49f,height*0.49f};
+      Vector2D start = {width*0.45f,height*0.7f};
 
-      PythagorasTree(&start, 10, width * 0.2, pi3, pi6);
+      // PythagorasTree(&start, 15, width * 0.2,  pi3, pi + pi6 - .52f);
+      // PythagorasTree(&start, 15, width * 0.2,  pi4, pi + pi6 - .52f);
+      PythagorasTree(&start, 15, width * 0.2,  pi6, pi + pi6 - .52f);
 
       glfwSwapBuffers(window);
       glfwPollEvents();
@@ -75,34 +77,34 @@ int main()
 }
 
 static void PythagorasTree(Vector2D * start, const unsigned long depth, 
-                            const unsigned long len, const double fi, const double alpha)
+                            const unsigned long len, const double alpha, const double fi)
 {	
 	if(depth==0||start==0||len==0) return;
 	
   Vector2D a,b,c,d;
 
-  float scale = 0.3f;
+  float scale = 0.69f;
   
   a = { 
-        start->x + scale * len * cos(alpha), 
-        start->y + scale * len * sin(alpha)
+        start->x - scale * len * sin(fi), 
+        start->y + scale * len * cos(fi)
       };
   
   
   b = { 
-        start->x + scale * len * cos(-( pi - (pi2 + alpha))), 
-        start->y + scale * len * sin(-( pi - (pi2 + alpha)))
+        start->x + scale * len * cos(fi), 
+        start->y + scale * len * sin(fi)
       };
   
   c = {
-        b.x + scale * len * cos(alpha), 
-        b.y + scale * len * sin(alpha)
+        a.x + scale * len * cos(fi), 
+        a.y + scale * len * sin(fi)
     };
 
 
   d = { 
-        start->x + scale * len * cos(alpha + pi2),
-        start->y + scale * len * sin(alpha + pi2)
+        c.x - scale * len * sin(alpha) * sin(alpha + fi),
+        c.y + scale * len * sin(alpha) * cos(alpha + fi)
       };
 
   line(start, &a);
@@ -110,11 +112,11 @@ static void PythagorasTree(Vector2D * start, const unsigned long depth,
   line(   &b, &c);
   line(   &a, &c);
   
-  line(   &a, &d);
-  line(start, &d);
+  // line(   &a, &d);
+  // line(start, &d);
 
-  PythagorasTree(&d, depth - 1, len,  alpha, alpha - fi);
-  // PythagorasTree(&d, depth - 1, len,  alpha-fi, alpha + (pi2 - fi));
+  PythagorasTree(&a, depth - 1, len * cos(alpha), alpha, fi + alpha);
+  PythagorasTree(&d, depth - 1, len * sin(alpha), alpha, fi + alpha - pi2);
 
 };
 
