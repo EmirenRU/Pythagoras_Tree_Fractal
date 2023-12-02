@@ -8,3 +8,13 @@
 using namespace std;
 
 #define pi 3.1415926535897932384626433832795
+
+// #define ORIGINAL
+
+#ifndef ORIGINAL
+#define ANTIALIASING
+#endif // ANTIALIASING
+
+#ifndef ANTIALIASING
+#define ORIGINAL 
+#endif // ORIGINAL

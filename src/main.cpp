@@ -4,6 +4,8 @@ typedef struct{
     double x,y;
 }Vector2D;
 
+typedef std::pair<double, double> v2d;
+
 static void line(Vector2D * start, Vector2D * end);
 static void PythagorasTree(Vector2D * start, const unsigned long depth, 
                             const unsigned long len, const double fi, const double alpha);
@@ -83,7 +85,7 @@ static void PythagorasTree(Vector2D * start, const unsigned long depth,
 	
   Vector2D a,b,c,d;
 
-  float scale = 0.69f;
+  float scale = 0.65f;
   
   a = { 
         start->x - scale * len * sin(fi), 
@@ -123,8 +125,64 @@ static void PythagorasTree(Vector2D * start, const unsigned long depth,
 static void line(Vector2D * start, Vector2D * end)
 {
   glColor3d(0.5f, 0.3f, 0.6f);
-  glBegin(GL_LINES);
+#ifdef ORIGINAL
+ glBegin(GL_LINES);
     glVertex2d(start->x, start->y);
     glVertex2d(  end->x,   end->y);
   glEnd();
+#endif // ORIGINAL
+
+#ifdef ANTIALIASING
+  glBegin(GL_POINTS);
+    float dx = end->x-start->x;
+    float dy = end->y-start->y;
+
+    int sx = (dx>=0) ? 1 : (-1);
+    int sy = (dy>=0) ? 1 : (-1);
+
+    float x = start->x;
+    float y = start->y;
+
+    int isSwaped = 0;
+
+    if(abs(dy) > abs(dx))
+    {
+        float tdx = dx;
+        dx =dy;
+        dy = tdx;
+
+        isSwaped = 1;
+    }
+
+    float p = 2*(abs(dy)) - abs(dx);
+
+    glVertex2i(x,y);
+
+    for(int i = 0; i<= abs(dx);i++)
+    {
+        if(p < 0)
+        {
+            if(isSwaped == 0){
+                x = x + sx;
+                glVertex2i(x,y);
+            }
+            else{
+                y = y+sy;
+                glVertex2i(x,y);
+            }
+            p = p + 2*abs(dy);
+        }
+        else
+        {
+            x = x+sx;
+            y = y+sy;
+            glVertex2i(x,y);
+            p = p + 2*abs(dy) - 2*abs(dx);
+        }
+    }
+
+
+
+  glEnd();
+#endif
 };
